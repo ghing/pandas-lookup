@@ -26,7 +26,6 @@ def _make_path(keys, value, ext, version=None):
     return path
 
 
-
 def make_table_path(keys, value, version=None):
     """
     Generate a path to find a given lookup table.
@@ -74,7 +73,8 @@ class Source(object):
         A path in which to store cached copies of any tables that are used, so
         they can continue to be used offline.
     """
-    def __init__(self, root='http://wireservice.github.io/lookup', cache='~/.lookup'):
+    def __init__(self, root='http://wireservice.github.io/lookup',
+                 cache='~/.lookup'):
         self._root = root
         self._cache = os.path.expanduser(cache) if cache else None
 
@@ -91,7 +91,8 @@ class Source(object):
 
                 return text
 
-        msg = 'Unable to download remote file "{0}" and local cache is not available.'.format(path)
+        msg = ('Unable to download remote file "{0}" and local cache is not '
+               'available.').format(path)
         raise RuntimeError(msg)
 
     def _write_cache(self, path, text):
@@ -127,7 +128,7 @@ class Source(object):
 
         try:
             data = yaml.load(text)
-        except:
+        except yaml.YAMLError:
             raise ValueError('Failed to read or parse YAML at %s' % url)
 
         return data

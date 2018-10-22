@@ -8,10 +8,12 @@ install_requires = [
     'pyyaml>=3.11'
 ]
 
+description = 'pandas-lookup adds remote lookup tables to a Pandas DataFrame.'
+
 setup(
     name='pandas-lookup',
     version='0.1.0',
-    description='pandas-lookup adds remote lookup tables to a Pandas DataFrame.',
+    description=description,
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     author='Geoff Hing',

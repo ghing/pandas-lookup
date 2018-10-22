@@ -8,11 +8,12 @@ DEFAULT_SOURCE = Source()
 
 def lookup(df, key, value, lookup_key=None, version=None, source=None):
     """
-    Fetch a lookup table from the remote source, matches it with this `DataFrame` by
-    its key columns, appends the value column and returns a new `DataFrame`. 
+    Fetch a lookup table from the remote source, matches it with this
+    `DataFrame` by its key columns, appends the value column and returns a new
+    `DataFrame`.
 
     :param df:
-        `pandas.DataFrame` into which the lookup table will be merged.     
+        `pandas.DataFrame` into which the lookup table will be merged.
     :param key:
         A column name or a sequence of such names to match in this table.
     :param value:
@@ -51,7 +52,8 @@ def lookup(df, key, value, lookup_key=None, version=None, source=None):
     if lookup_key:
         result = result.drop(key, axis=1)
 
-    return result    
+    return result
+
 
 def from_lookup(lookup_key, value, version=None, source=None):
     """

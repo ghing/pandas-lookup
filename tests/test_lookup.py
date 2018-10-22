@@ -44,7 +44,8 @@ class TestLookup(unittest.TestCase):
 
         table = pd.DataFrame.from_records(rows, columns=column_names)
 
-        result = lookup(table, 'postal', 'state', lookup_key='usps', source=self._source)
+        result = lookup(table, 'postal', 'state', lookup_key='usps',
+                        source=self._source)
 
         self.assertEqual(list(result.columns), ['usps', 'state'])
 
@@ -61,11 +62,13 @@ class TestLookup(unittest.TestCase):
 
         table = pd.DataFrame.from_records(rows, columns=column_names)
 
-        result = lookup(table, 'naics', 'description', version='2012', source=self._source)
+        result = lookup(table, 'naics', 'description', version='2012',
+                        source=self._source)
 
         self.assertEqual(list(result.columns), ['naics', 'description'])
 
-        self.assertEqual(result.iloc[1].tolist(), ['313320', 'Fabric Coating Mills'])
+        self.assertEqual(result.iloc[1].tolist(),
+                         ['313320', 'Fabric Coating Mills'])
 
     def test_lookup_multiple_keys(self):
         rows = [
@@ -78,7 +81,8 @@ class TestLookup(unittest.TestCase):
 
         table = pd.DataFrame.from_records(rows, columns=column_names)
 
-        result = lookup(table, ['usps', 'year'], 'population', source=self._source)
+        result = lookup(table, ['usps', 'year'], 'population',
+                        source=self._source)
 
         self.assertEqual(list(result.columns), ['usps', 'year', 'population'])
 
