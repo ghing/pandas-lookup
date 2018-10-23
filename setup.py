@@ -12,7 +12,7 @@ description = 'pandas-lookup adds remote lookup tables to a Pandas DataFrame.'
 
 setup(
     name='pandas-lookup',
-    version='0.1.3',
+    version='0.1.4',
     description=description,
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",

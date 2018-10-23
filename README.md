@@ -15,6 +15,25 @@ pip install pandas-lookup
 Look up a column from a lookup table
 ------------------------------------
 
+When the key in your data is the same as the key in the lookup table:
+
+```
+>>> import pandaslookup
+>>> import pandas as pd
+>>> df = pd.DataFrame({'usps': ['CT', 'NY', 'NJ']})
+>>> print(df)
+  state_abbr
+0         CT
+1         NY
+2         NJ
+>>> df.pipe(pandaslookup.lookup, 'usps', 'state')
+  usps        state
+0   CT  Connecticut
+1   NY     New York
+2   NJ   New Jersey
+```
+When the key in your data is different than the key in the lookup table:
+
 ```
 >>> import pandaslookup
 >>> import pandas as pd
@@ -24,14 +43,11 @@ Look up a column from a lookup table
 0         CT
 1         NY
 2         NJ
->>> import pandaslookup
->>> import pandas as pd
->>> df = pd.DataFrame({'state_abbr': ['CT', 'NY', 'NJ']})
->>> print(df)
-  state_abbr
-0         CT
-1         NY
-2         NJ
+>>> df.pipe(pandaslookup.lookup, 'state_abbr', 'state', lookup_key='usps')
+  usps        state
+0   CT  Connecticut
+1   NY     New York
+2   NJ   New Jersey
 ```
 
 Retrieve a table without joining
