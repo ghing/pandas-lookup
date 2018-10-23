@@ -3,7 +3,7 @@
 from setuptools import setup
 
 install_requires = [
-    'pandas',
+    'pandas>=0.18.1',
     'requests>=2.9.1',
     'pyyaml>=3.11'
 ]
@@ -12,7 +12,7 @@ description = 'pandas-lookup adds remote lookup tables to a Pandas DataFrame.'
 
 setup(
     name='pandas-lookup',
-    version='0.1.0',
+    version='0.1.2',
     description=description,
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
