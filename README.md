@@ -9,7 +9,7 @@ Installation
 ------------
 
 ```
-pip install git+https://github.com/ghing/pandas-lookup.git#egg=pandas-lookup
+pip install pandas-lookup
 ```
 
 Look up a column from a lookup table
