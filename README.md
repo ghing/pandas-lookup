@@ -22,10 +22,10 @@ When the key in your data is the same as the key in the lookup table:
 >>> import pandas as pd
 >>> df = pd.DataFrame({'usps': ['CT', 'NY', 'NJ']})
 >>> print(df)
-  state_abbr
-0         CT
-1         NY
-2         NJ
+  usps
+0   CT
+1   NY
+2   NJ
 >>> df.pipe(pandaslookup.lookup, 'usps', 'state')
   usps        state
 0   CT  Connecticut
